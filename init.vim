@@ -32,7 +32,12 @@ Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
+" Набор тем
 Plug 'projekt0n/github-nvim-theme'
+
+" история гита
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
@@ -56,6 +61,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+require('gitsigns').setup()
 EOF
 
 nnoremap ff <cmd>Telescope find_files<cr>

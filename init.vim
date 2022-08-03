@@ -1,4 +1,29 @@
 call plug#begin()
+
+" Поддержка языка
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Синхронный автокомплит
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'nvim-lua/completion-nvim'
+
+" Темы
+Plug 'morhetz/gruvbox'  " colorscheme gruvbox
+Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'ayu-theme/ayu-vim'
+Plug 'xiyaowong/nvim-transparent'
+Plug 'lifepillar/vim-solarized8'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
+" Автосохранение
+Plug 'Pocco81/AutoSave.nvim'
+
 " Вкладки файлов
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -6,20 +31,11 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 " Дерево файлов
 Plug 'kyazdani42/nvim-tree.lua'
 
-" Поддержка языка
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neovim/nvim-lspconfig'
-
 " Telescope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-" Синхронный автокомплит
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
+" For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
@@ -31,75 +47,44 @@ Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
 
-" Набор тем
-Plug 'projekt0n/github-nvim-theme'
-
 " история гита
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
-" автоформатирование кода
-Plug 'sbdchd/neoformat'
+" php cs fixer
+Plug 'stephpy/vim-php-cs-fixer'
 
-" дебаг
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
+" SQL
+Plug 'lighttiger2505/sqls.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
+
+" set background=light
+" colorscheme solarized8
+" colorscheme gruvbox
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalflight
+let g:airline_theme='onehalfdark'
+" colorscheme material
+" colorscheme ayu
+if (has('termguicolors'))
+  set termguicolors
+endif
 
 source $HOME/.config/nvim/barbar.vim
 source $HOME/.config/nvim/cmp.vim
 source $HOME/.config/nvim/common.vim
-source $HOME/.config/nvim/github-themes.vim
 source $HOME/.config/nvim/gitsigns.vim
 source $HOME/.config/nvim/lsp.vim
 source $HOME/.config/nvim/lualine.vim
 source $HOME/.config/nvim/tabs.vim
-source $HOME/.config/nvim/telescope.vim
-source $HOME/.config/nvim/treesitter.vim
 source $HOME/.config/nvim/vimtree.vim
-source $HOME/.config/nvim/neoformat.vim
-source $HOME/.config/nvim/nvim-dap.vim
-
-lua <<EOF
-require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-  },
-  sidebar = {
-    -- You can change the order of elements in the sidebar
-    elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      {
-        id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
-      },
-      { id = "breakpoints", size = 0.25 },
-      { id = "stacks", size = 0.25 },
-      { id = "watches", size = 00.25 },
-    },
-    size = 40,
-    position = "left", -- Can be "left", "right", "top", "bottom"
-  },
-  tray = {
-    elements = { "repl" },
-    size = 10,
-    position = "bottom", -- Can be "left", "right", "top", "bottom"
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
-})
-EOF
+source $HOME/.config/nvim/treesitter.vim
+source $HOME/.config/nvim/autosave.vim
+source $HOME/.config/nvim/telescope.vim
+source $HOME/.config/nvim/php_cs_fixer.vim
+source $HOME/.config/nvim/sql.vim

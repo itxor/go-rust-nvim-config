@@ -1,10 +1,16 @@
 lua <<EOF
+    -- sql
+    require'lspconfig'.sqlls.setup{}
     -- go
     require'lspconfig'.gopls.setup{}
     -- php
-    require'lspconfig'.intelephense.setup{}
-    -- python
-    require'lspconfig'.pyright.setup{}
+    require'lspconfig'.phpactor.setup{
+        on_attach = on_attach,
+        init_options = {
+            ["language_server_phpstan.enabled"] = false,
+            ["language_server_psalm.enabled"] = false,
+        }
+    }
 
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -37,7 +43,7 @@ lua <<EOF
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
-    local servers = { 'gopls', 'intelephense', 'pyright' }
+    local servers = { 'gopls', 'phpactor', 'sqlls'}
     for _, lsp in pairs(servers) do
       require('lspconfig')[lsp].setup {
         on_attach = on_attach,
@@ -47,4 +53,10 @@ lua <<EOF
         }
       }
     end
+
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+            virtual_text = false
+        }
+    )
 EOF

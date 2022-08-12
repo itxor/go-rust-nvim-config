@@ -24,6 +24,7 @@ lua <<EOF
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
       ['<Tab>'] = cmp.mapping(function(fallback)
           local col = vim.fn.col('.') - 1
           if cmp.visible() then

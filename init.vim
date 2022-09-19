@@ -51,13 +51,6 @@ Plug 'lewis6991/gitsigns.nvim'
 " php cs fixer
 Plug 'stephpy/vim-php-cs-fixer'
 
-" SQL
-Plug 'lighttiger2505/sqls.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-Plug 'Pocco81/auto-save.nvim'
-
 call plug#end()
 
 source $HOME/.config/nvim/barbar.vim
@@ -71,12 +64,4 @@ source $HOME/.config/nvim/vimtree.vim
 source $HOME/.config/nvim/treesitter.vim
 source $HOME/.config/nvim/telescope.vim
 source $HOME/.config/nvim/php_cs_fixer.vim
-source $HOME/.config/nvim/sql.vim
 source $HOME/.config/nvim/theme.vim
-
-
-lua << EOF
-    require("auto-save").setup {
-        enable=true,
-    }
-EOF

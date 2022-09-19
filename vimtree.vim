@@ -8,9 +8,9 @@ let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folde
 let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
 let g:nvim_tree_show_icons = {
     \ 'git': 1,
-    \ 'folders': 0,
-    \ 'files': 0,
-    \ 'folder_arrows': 0,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 1,
     \ }
 let g:nvim_tree_icons = {
     \ 'default': '',

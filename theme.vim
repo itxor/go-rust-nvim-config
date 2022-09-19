@@ -1,10 +1,10 @@
-set background=dark
-colorscheme gruvbox
+" set background=ligth
+" colorscheme gruvbox
 " colorscheme solarized8
 " syntax on
 " set t_Co=256
 " set cursorline
-" colorscheme onehalflight
+colorscheme onehalflight
 " let g:airline_theme='onehalfdark'
 " colorscheme material
 " colorscheme ayu

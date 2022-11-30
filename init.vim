@@ -20,6 +20,8 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'xiyaowong/nvim-transparent'
 Plug 'lifepillar/vim-solarized8'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'NLKNguyen/papercolor-theme'
 
 " Вкладки файлов
 Plug 'romgrk/barbar.nvim'
@@ -51,6 +53,9 @@ Plug 'lewis6991/gitsigns.nvim'
 " php cs fixer
 Plug 'stephpy/vim-php-cs-fixer'
 
+" Plugin manager
+Plug 'williamboman/mason.nvim'
+
 call plug#end()
 
 source $HOME/.config/nvim/barbar.vim
@@ -65,3 +70,5 @@ source $HOME/.config/nvim/treesitter.vim
 source $HOME/.config/nvim/telescope.vim
 source $HOME/.config/nvim/php_cs_fixer.vim
 source $HOME/.config/nvim/theme.vim
+source $HOME/.config/nvim/vim-go.vim
+source $HOME/.config/nvim/mason.vim

@@ -12,3 +12,7 @@ au FileType go nmap <leader>ref <Plug>(go-referrers)
 
 " generate if err != nil ... 
 au FileType go nmap <leader>ie <Plug>(go-iferr)
+
+" DEBUGGER
+" go debug start 
+au FileType go nmap <leader>bbg <Plug>(go-debug-start)

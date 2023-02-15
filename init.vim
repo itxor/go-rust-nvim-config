@@ -4,6 +4,11 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" GO-oтладчик
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go'
+Plug 'rcarriga/nvim-dap-ui'
+
 " Синхронный автокомплит
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -22,6 +27,8 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
+
 
 " Вкладки файлов
 Plug 'romgrk/barbar.nvim'
@@ -50,11 +57,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
-" php cs fixer
-Plug 'stephpy/vim-php-cs-fixer'
-
 " Plugin manager
 Plug 'williamboman/mason.nvim'
+
+" Изи биндинг комбинаций
+Plug 'folke/which-key.nvim'
 
 call plug#end()
 
@@ -68,7 +75,8 @@ source $HOME/.config/nvim/tabs.vim
 source $HOME/.config/nvim/vimtree.vim
 source $HOME/.config/nvim/treesitter.vim
 source $HOME/.config/nvim/telescope.vim
-source $HOME/.config/nvim/php_cs_fixer.vim
 source $HOME/.config/nvim/theme.vim
-source $HOME/.config/nvim/vim-go.vim
+source $HOME/.config/nvim/combinations.vim
 source $HOME/.config/nvim/mason.vim
+source $HOME/.config/nvim/debugger.vim
+source $HOME/.config/nvim/which-key.vim

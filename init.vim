@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'tpope/vim-surround'
 
 " GO-oтладчик
 Plug 'mfussenegger/nvim-dap'
@@ -28,6 +29,7 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
+Plug 'sainnhe/gruvbox-material'
 
 
 " Вкладки файлов
@@ -56,6 +58,7 @@ Plug 'ryanoasis/vim-devicons'
 " история гита
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'f-person/git-blame.nvim'
 
 " Plugin manager
 Plug 'williamboman/mason.nvim'
@@ -64,6 +67,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'folke/which-key.nvim'
 
 call plug#end()
+
 
 source $HOME/.config/nvim/barbar.vim
 source $HOME/.config/nvim/common.vim
@@ -80,3 +84,5 @@ source $HOME/.config/nvim/combinations.vim
 source $HOME/.config/nvim/mason.vim
 source $HOME/.config/nvim/debugger.vim
 source $HOME/.config/nvim/which-key.vim
+source $HOME/.config/nvim/copilot.vim
+

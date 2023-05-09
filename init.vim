@@ -1,9 +1,13 @@
-call plug#begin()
+ call plug#begin()
 " Поддержка языка
-Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-surround'
+" асинхронная проверка файлов во время набора текста
+Plug 'dense-analysis/ale'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 " GO-oтладчик
 Plug 'mfussenegger/nvim-dap'
@@ -16,7 +20,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp' 
-Plug 'nvim-lua/completion-nvim'
 
 " Темы
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
@@ -60,9 +63,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'f-person/git-blame.nvim'
 
-" Plugin manager
-Plug 'williamboman/mason.nvim'
-
 " Изи биндинг комбинаций
 Plug 'folke/which-key.nvim'
 
@@ -81,8 +81,8 @@ source $HOME/.config/nvim/treesitter.vim
 source $HOME/.config/nvim/telescope.vim
 source $HOME/.config/nvim/theme.vim
 source $HOME/.config/nvim/combinations.vim
-source $HOME/.config/nvim/mason.vim
 source $HOME/.config/nvim/debugger.vim
 source $HOME/.config/nvim/which-key.vim
 source $HOME/.config/nvim/copilot.vim
+source $HOME/.config/nvim/mason.vim
 

@@ -1,6 +1,5 @@
 lua <<EOF
-    -- go
-    require'lspconfig'.gopls.setup{}
+    local nvim_lsp = require'lspconfig'
 
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -31,18 +30,46 @@ lua <<EOF
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
     end
 
-    -- Use a loop to conveniently call 'setup' on multiple servers and
-    -- map buffer local keybindings when the language server attaches
-    local servers = { 'gopls' }
-    for _, lsp in pairs(servers) do
-      require('lspconfig')[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-          -- This will be the default in neovim 0.7+
-          debounce_text_changes = 150,
-        }
+    -- golang
+    nvim_lsp.gopls.setup ({
+      on_attach = on_attach,
+      flags = {
+        -- This will be the default in neovim 0.7+
+        debounce_text_changes = 150,
+      },
+      capabilities = {
+          workspace = {
+              didChangeWatchedFiles = {
+                  dynamicRegistration = true,
+              },
+          },
       }
+    })
+
+    local on_attach_for_rust = function(client)
+        require'completion'.on_attach(client)
     end
+    nvim_lsp.rust_analyzer.setup({
+        on_attach=on_attach_for_rust,
+        settings = {
+            ["rust-analyzer"] = {
+                imports = {
+                    granularity = {
+                        group = "module",
+                    },
+                    prefix = "self",
+                },
+                cargo = {
+                    buildScripts = {
+                        enable = true,
+                    },
+                },
+                procMacro = {
+                    enable = true
+                },
+            }
+        }
+    })
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {

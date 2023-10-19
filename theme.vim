@@ -12,16 +12,22 @@
 " set background=dark
 " colorscheme papercolor
 
-set background=light
-" colorscheme gruvbox
+" CURRENT
+" set background=light
+" colorscheme melange
+colorscheme kanagawa
+
+
 " colorscheme solarized8
 " syntax on
 set t_Co=256
 " set cursorline
-colorscheme onehalflight
+" colorscheme onehalflight
 " let g:airline_theme='onehalfdark'
 " colorscheme material
 " colorscheme ayu
+" colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+"""colorscheme catppuccin-latte"", catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 
 " set background=light
 " colorscheme gruvbox-material

@@ -13,3 +13,7 @@ set fileformat=unix
 set foldlevel=20
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
+lua <<EOF
+    require('gitsigns').setup()
+EOF

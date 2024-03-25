@@ -1,6 +1,5 @@
-lua <<EOF
 require('lualine').setup {
-    options = { 
+    options = {
         theme = 'gruvbox' 
     },
     sections = {
@@ -17,4 +16,3 @@ require('lualine').setup {
         lualine_z = {'location'}
     }
 }
-EOF

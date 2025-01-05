@@ -108,6 +108,13 @@ require'lspconfig'.lua_ls.setup {
 require'lspconfig'.dartls.setup {}
 vim.g.sc_auto_map = true
 
+--python
+require'lspconfig'.pyright.setup{}
+
+--vue
+require'lspconfig'.volar.setup{
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {

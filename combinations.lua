@@ -31,8 +31,6 @@ keymap('i', '<Char-0xA5>', '<Plug>(copilot-previous)', default_opts)
 -- cmd+1: open left bar  
 keymap('n', '<Char-0xA4>', '<cmd>NvimTreeToggle<cr>', default_opts)
 
--- auto fill go structs
-keymap('n', '<C-leader>', '<cmd>GoFillStruct<cr>', default_opts)
 
 vim.api.nvim_create_autocmd(
     {"FileType"},
@@ -91,3 +89,10 @@ function GoToDefinition()
 	vim.cmd('GoCallers')
   end
 end
+
+keymap('n', '<Leader>gi', ':GoImplements<CR>', default_opts)
+keymap('n', '<Leader>gc', ':GoCallers<CR>', default_opts)
+keymap('n', '<Leader>gr', ':GoReferrers<CR>', default_opts)
+keymap('n', 'gh', '<cmd>Lspsaga finder<CR>', default_opts)
+-- auto fill go structs
+keymap('n', '<Leader>,m', '<cmd>GoFillStruct<cr>', default_opts)

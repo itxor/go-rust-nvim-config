@@ -1,4 +1,8 @@
 -- vim.cmd.colorscheme("bluloco-light")
---vim.cmd.colorscheme("gruvbox")
--- vim.cmd.colorscheme("tokyonight-day")
-vim.cmd.colorscheme("carbonized-light")
+-- vim.o.background = "light"
+-- vim.cmd.colorscheme("gruvbox")
+-- vim.cmd.colorscheme("catppuccin")
+-- vim.opt.background = "light"
+-- vim.cmd.colorscheme("gruvbox-flat")
+
+vim.cmd.colorscheme("dayfox")

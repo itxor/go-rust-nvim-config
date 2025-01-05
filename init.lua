@@ -3,6 +3,8 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 
+Plug ('~/plugins/present.nvim')
+
 -- language support
 Plug('nvim-treesitter/nvim-treesitter', {[ 'do' ] = ':TSUpdate'})
 Plug('tpope/vim-surround')
@@ -23,6 +25,7 @@ Plug 'natebosch/vim-lsc-dart'
 Plug('neovim/nvim-lspconfig')
 
 -- Синхронный автокомплит
+Plug('hrsh7th/vim-vsnip')
 Plug('hrsh7th/cmp-buffer')
 Plug('hrsh7th/cmp-path')
 Plug('hrsh7th/cmp-cmdline')
@@ -40,6 +43,9 @@ Plug('uloco/bluloco.nvim')
 Plug('rktjmp/lush.nvim')
 Plug('folke/tokyonight.nvim')
 Plug('rafi/awesome-vim-colorschemes')
+Plug('catppuccin/nvim')
+Plug('scottmckendry/cyberdream.nvim')
+Plug('EdenEast/nightfox.nvim')
 
 -- Вкладки файлов
 Plug('romgrk/barbar.nvim')
@@ -70,7 +76,6 @@ Plug('mg979/vim-visual-multi', {[ 'branch' ] = 'master'})
 
 -- плагины для работы с тестами
 Plug('fredrikaverpil/neotest-golang')
-Plug('nvim-lua/plenary.nvim')
 Plug('antoinemadec/FixCursorHold.nvim')
 Plug('nvim-treesitter/nvim-treesitter')
 Plug('nvim-neotest/nvim-nio')
@@ -80,6 +85,27 @@ Plug('rmagatti/auto-session')
 Plug('akinsho/git-conflict.nvim')
 
 Plug('nvimdev/lspsaga.nvim')
+
+Plug('williamboman/mason.nvim')
+
+Plug ('eddyekofo94/gruvbox-flat.nvim')
+
+Plug ('catppuccin/nvim', { ['as'] = 'catppuccin' })
+
+-- Deps
+Plug ('nvim-treesitter/nvim-treesitter')
+Plug ('stevearc/dressing.nvim')
+Plug ('nvim-lua/plenary.nvim')
+Plug ('MunifTanjim/nui.nvim')
+Plug ('MeanderingProgrammer/render-markdown.nvim')
+
+-- Optional deps
+Plug ( 'hrsh7th/nvim-cmp' )
+Plug ( 'echasnovski/mini.icons' )
+Plug ( 'HakonHarnes/img-clip.nvim' )
+
+-- Yay, pass source=true if you want to build from source
+Plug ( 'yetone/avante.nvim', { [ 'branch' ] = 'main', [ 'do' ] = 'make' } )
 
 vim.call('plug#end')
 
@@ -101,11 +127,13 @@ require"comment_config" -- +
 require"trouble_config" -- +
 require"gsigns"
 require"gitconflicts"
+require"mason_cfg"
 
 require"neotest_config"
 require"copilot"
 require"lspsagaplug"
---require"lazy_cfg"
+require"avanteplug"
+-- require"dev"
 
 -- source $HOME/.config/nvim/tabs.vim
 -- source $HOME/.config/nvim/debugger.vim

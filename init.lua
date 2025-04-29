@@ -36,7 +36,7 @@ Plug('hrsh7th/cmp-nvim-lsp-signature-help')
 -- comment plugin
 Plug('numToStr/Comment.nvim')
 
--- Темы
+-- themes
 Plug('morhetz/gruvbox')
 Plug('rebelot/kanagawa.nvim')
 Plug('uloco/bluloco.nvim')
@@ -106,6 +106,8 @@ Plug ( 'HakonHarnes/img-clip.nvim' )
 
 -- Yay, pass source=true if you want to build from source
 Plug ( 'yetone/avante.nvim', { [ 'branch' ] = 'main', [ 'do' ] = 'make' } )
+
+Plug('nvimtools/none-ls.nvim')
 
 vim.call('plug#end')
 

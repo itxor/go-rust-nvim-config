@@ -113,8 +113,32 @@ require'lspconfig'.pyright.setup{}
 
 --vue
 require'lspconfig'.volar.setup{
-  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue'}
 }
+
+--json
+require'lspconfig'.jsonls.setup{
+  filetypes = {'json'}
+}
+
+local null_ls = require("null-ls")
+-- local helpers = require("null-ls.helpers")
+
+local fixjson = {
+    method = null_ls.methods.FORMATTING,
+    filetypes = { "json" },
+    generator = null_ls.generator({
+        command = "fixjson",
+        args = { "--stdin" },
+        to_stdin = true,
+    }),
+}
+
+null_ls.setup({
+    sources = {
+        fixjson,
+    },
+})
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {

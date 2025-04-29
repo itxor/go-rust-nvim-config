@@ -96,3 +96,6 @@ keymap('n', '<Leader>gr', ':GoReferrers<CR>', default_opts)
 keymap('n', 'gh', '<cmd>Lspsaga finder<CR>', default_opts)
 -- auto fill go structs
 keymap('n', '<Leader>,m', '<cmd>GoFillStruct<cr>', default_opts)
+
+-- lsp buf format
+keymap('n', '<Leader>bf', ':lua vim.lsp.buf.format()<cr>', default_opts)

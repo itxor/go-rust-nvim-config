@@ -109,6 +109,8 @@ Plug ( 'yetone/avante.nvim', { [ 'branch' ] = 'main', [ 'do' ] = 'make' } )
 
 Plug('nvimtools/none-ls.nvim')
 
+Plug ('olimorris/codecompanion.nvim')
+
 vim.call('plug#end')
 
 local home=os.getenv("HOME")
@@ -116,25 +118,26 @@ package.path = home .. "/.config/nvim/?.lua;" .. package.path
 
 require"common" -- +
 require"theme" -- +
-require"barbar" -- +
-require"vimtree" -- +
-require"treesitter" -- +
-require"lualine" -- +
+require"barbarplug" -- +
+require"vimtreeplug" -- +
+require"treesitterplug" -- +
+require"lualineplug" -- +
 require"lsp" -- +
 require"cmp_config" -- +
 require"combinations" -- +
-require"autosession" -- +
+require"autosessionplug" -- +
 require"telescope_config" -- +
 require"comment_config" -- +
 require"trouble_config" -- +
-require"gsigns"
+require"gsignsplug"
 require"gitconflicts"
 require"mason_cfg"
 
 require"neotest_config"
-require"copilot"
+require"copilotplug"
 require"lspsagaplug"
-require"avanteplug"
+require"codecompanionplug"
+-- require"avanteplug"
 -- require"dev"
 
 -- source $HOME/.config/nvim/tabs.vim

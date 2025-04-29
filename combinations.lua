@@ -77,19 +77,6 @@ keymap('n', '<Leader>mf', ':lua require("neotest").run.run(vim.fn.expand("%"))<C
 -- run all
 keymap('n', '<Leader>mra', ':lua require("neotest").run.run(vim.fn.getcwd())<CR>', default_opts)
 
-
--- redefine dg logic
-keymap('n', '<Leader>gd', ':lua GoToDefinition()<CR>', default_opts)
-
-function GoToDefinition()
-  local current_line = vim.api.nvim_get_current_line()
-  local func_name = current_line:match("^%s*func%s+[%w_]+")
-
-  if func_name then
-	vim.cmd('GoCallers')
-  end
-end
-
 keymap('n', '<Leader>gi', ':GoImplements<CR>', default_opts)
 keymap('n', '<Leader>gc', ':GoCallers<CR>', default_opts)
 keymap('n', '<Leader>gr', ':GoReferrers<CR>', default_opts)

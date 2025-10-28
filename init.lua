@@ -77,12 +77,10 @@ Plug('mg979/vim-visual-multi', {[ 'branch' ] = 'master'})
 -- плагины для работы с тестами
 Plug('fredrikaverpil/neotest-golang')
 Plug('antoinemadec/FixCursorHold.nvim')
-Plug('nvim-treesitter/nvim-treesitter')
 Plug('nvim-neotest/nvim-nio')
 Plug('nvim-neotest/neotest')
 
 Plug('rmagatti/auto-session')
-Plug('akinsho/git-conflict.nvim')
 
 Plug('nvimdev/lspsaga.nvim')
 
@@ -90,56 +88,55 @@ Plug('williamboman/mason.nvim')
 
 Plug ('eddyekofo94/gruvbox-flat.nvim')
 
-Plug ('catppuccin/nvim', { ['as'] = 'catppuccin' })
-
--- Deps
-Plug ('nvim-treesitter/nvim-treesitter')
 Plug ('stevearc/dressing.nvim')
 Plug ('nvim-lua/plenary.nvim')
 Plug ('MunifTanjim/nui.nvim')
 Plug ('MeanderingProgrammer/render-markdown.nvim')
 
--- Optional deps
-Plug ( 'hrsh7th/nvim-cmp' )
 Plug ( 'echasnovski/mini.icons' )
 Plug ( 'HakonHarnes/img-clip.nvim' )
-
--- Yay, pass source=true if you want to build from source
-Plug ( 'yetone/avante.nvim', { [ 'branch' ] = 'main', [ 'do' ] = 'make' } )
 
 Plug('nvimtools/none-ls.nvim')
 
 Plug ('olimorris/codecompanion.nvim')
+Plug ('j-hui/fidget.nvim')
+Plug ('ravitemer/mcphub.nvim')
+Plug ('OXY2DEV/markview.nvim')
 
 vim.call('plug#end')
 
 local home=os.getenv("HOME")
 package.path = home .. "/.config/nvim/?.lua;" .. package.path
 
+-- common settings 
 require"common" -- +
+-- themes
 require"theme" -- +
-require"barbarplug" -- +
-require"vimtreeplug" -- +
-require"treesitterplug" -- +
-require"lualineplug" -- +
-require"lsp" -- +
-require"cmp_config" -- +
+-- custom keymaps
 require"combinations" -- +
-require"autosessionplug" -- +
-require"telescope_config" -- +
-require"comment_config" -- +
-require"trouble_config" -- +
-require"gsignsplug"
-require"gitconflicts"
-require"mason_cfg"
 
-require"neotest_config"
-require"copilotplug"
-require"lspsagaplug"
-require"codecompanionplug"
--- require"avanteplug"
--- require"dev"
+-- plugins configs
+require('plugins.codecompanion.codecompanion')
+require('plugins.lualine.lualine')
+require('plugins.comments')
+require('plugins.auto-sessions')
+require('plugins.mason')
+require('plugins.telescope.telescope')
+require('plugins.gitblame')
+require('plugins.treesitter')
+require('plugins.vimtree')
+require('plugins.trouble')
+require('plugins.barbar')
+require('plugins.copilot')
+require('plugins.lspsaga')
+require('plugins.neotest')
+require('plugins.render-markdown')
+require('plugins.cmp')
+require('plugins.lspconfig')
+require('plugins.markview')
 
 -- source $HOME/.config/nvim/tabs.vim
 -- source $HOME/.config/nvim/debugger.vim
+-- require"avanteplug"
+-- require"dev"
 
